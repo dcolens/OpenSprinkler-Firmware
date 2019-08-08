@@ -23,7 +23,11 @@ FROM base
 WORKDIR /OpenSprinkler
 
 RUN apk --no-cache add libstdc++ && \
-  mkdir -p /data/logs
+  mkdir -p /data/logs && \
+  ln -s /data/stns.dat && \
+  ln -s /data/nvm.dat && \
+  ln -s /data/ifkey.txt && \
+  ln -s /data/logs
 
 COPY --from=build /OpenSprinkler/OpenSprinkler /OpenSprinkler/OpenSprinkler
 
@@ -34,5 +38,5 @@ VOLUME /data
 EXPOSE 8080
 
 #-- By default, start OS using /data for saving data/NVM/log files
-CMD [ "./OpenSprinkler", "-d", "/data" ]
+CMD [ "./OpenSprinkler" ]
 
