@@ -1,4 +1,4 @@
-FROM arm32v7/alpine:3.10.1 as base
+FROM alpine:3.12.0 as base
 
 
 
