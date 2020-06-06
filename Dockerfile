@@ -8,7 +8,7 @@ FROM base as build
 
 WORKDIR /OpenSprinkler
 
-RUN apk --no-cache add bash g++
+RUN apk --no-cache add bash g++ mosquitto-dev
 COPY . /OpenSprinkler
 RUN ./build.sh -s ospi
 
